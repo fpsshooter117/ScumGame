@@ -5,77 +5,72 @@
  */
 
 /**
- *
  * @author Minal
  */
-public class Player
-{
-    String Name, Title;
-    int amount, inHand;
-    Hand hand;
-    
-    
-    public Player()
-    {
-        Name="Player";
-        Title="";
-        inHand=0;
-        amount=13;
+public class Player {
+    protected String Name, Title;
+    protected int amount, inHand;
+    protected Hand hand;
+
+
+    public Player() {
+        Name = "Player";
+        Title = "";
+        inHand = 0;
+        amount = 13;
         hand = new Hand(amount);
     }
-    public Player(String Name)
-    {
-        this.Name=Name;
-        amount =13;
-        Title="";
-        inHand=0;
-        hand = new Hand(amount);
+
+    public Player(String Name) {
+        this.Name = Name;
+        this.amount = 13;
+        this.Title = "";
+        this.inHand = 0;
+        this.hand = new Hand(amount);
     }
-    public void setTitle(String Title)
-    {
-        this.Title=Title;
+
+    public void setTitle(String Title) {
+        this.Title = Title;
     }
-    public void setPlayerHand(int amount)
-    {
-        hand = new Hand(amount);
-        this.amount=amount;
+
+    public void setHand(int amount) {
+        this.hand = new Hand(amount);
+        this.amount = amount;
     }
-    public boolean dealPlayer(Card card)
-    {
-        if(inHand==amount)
-        {
+
+    public boolean dealCard(Card card) {
+        if (inHand == amount) {
             System.out.println("hand is full");
             return false;
         }
-        hand.addCard(card);
-        inHand++;
+        this.hand.addCard(card);
+        this.inHand++;
         return true;
     }
-    public String toString()
-    {
+
+    public String toString() {
         String s = "";
-        
-        s+="Player Name: "+Name+"\n"+"Cards:"+"\n";
-        s+=hand.toString();
+
+        s += "Player Name: " + Name + "\n" + "Cards:" + "\n";
+        s += hand.toString();
         return s;
-                
+
     }
-    public void sortHand()
-    {
+
+    public void sortHand() {
         //System.out.println(inHand);
-        hand.sort(0,inHand-1);
+        hand.sort(0, inHand - 1);
     }
-    
-    public static void main(String[] args)
-    {
+
+    public static void main(String[] args) {
         Player p = new Player("peter");
-        p.setPlayerHand(13);
-        p.dealPlayer(new Card(10));
-        p.dealPlayer(new Card(5));
-        p.dealPlayer(new Card(8));
-        p.dealPlayer(new Card(9));
+        p.setHand(13);
+        p.dealCard(new Card(10));
+        p.dealCard(new Card(5));
+        p.dealCard(new Card(8));
+        p.dealCard(new Card(9));
         System.out.println(p.toString());
         p.sortHand();
-        System.out.println("\n"+p.toString());
+        System.out.println("\n" + p.toString());
     }
 }

@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/scum.iml" filepath="$PROJECT_DIR$/scum.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ScumGame.iml" filepath="$PROJECT_DIR$/ScumGame.iml" />
     </modules>
   </component>
 </project>

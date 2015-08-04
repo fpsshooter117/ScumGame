@@ -5,20 +5,16 @@
  */
 
 /**
- *
  * @author Minal
  */
-public class Quicksort<E extends Comparable<E>>
-{
+public class Quicksort<E extends Comparable<E>> {
 
     private E[] numbers;
     private int number;
 
-    public void sort(E[] values)
-    {
+    public void sort(E[] values) {
         // check for empty or null array
-        if (values == null || values.length == 0)
-        {
+        if (values == null || values.length == 0) {
             return;
         }
         this.numbers = values;
@@ -26,36 +22,30 @@ public class Quicksort<E extends Comparable<E>>
         quicksort(0, number - 1);
     }
 
-    public void sort(E[] values, int low, int high)
-    {
+    public void sort(E[] values, int low, int high) {
         // check for empty or null array
-        if (values == null || values.length == 0)
-        {
+        if (values == null || values.length == 0) {
             return;
         }
-        this.numbers=values;
+        this.numbers = values;
         quicksort(low, high);
     }
 
-    private void quicksort(int low, int high)
-    {
+    private void quicksort(int low, int high) {
         int i = low, j = high;
         // Get the pivot element from the middle of the list
         E pivot = numbers[low + (high - low) / 2];
 
         // Divide into two lists
-        while (i <= j)
-        {
+        while (i <= j) {
             // If the current value from the left list is smaller then the pivot
             // element then get the next element from the left list
-            while (numbers[i].compareTo(pivot) < 0)
-            {
+            while (numbers[i].compareTo(pivot) < 0) {
                 i++;
             }
             // If the current value from the right list is larger then the pivot
             // element then get the next element from the right list
-            while (numbers[j].compareTo(pivot) > 0)
-            {
+            while (numbers[j].compareTo(pivot) > 0) {
                 j--;
             }
 
@@ -64,26 +54,22 @@ public class Quicksort<E extends Comparable<E>>
             // which is smaller then the pivot element then we exchange the
             // values.
             // As we are done we can increase i and j
-            if (i <= j)
-            {
+            if (i <= j) {
                 exchange(i, j);
                 i++;
                 j--;
             }
         }
         // Recursion
-        if (low < j)
-        {
+        if (low < j) {
             quicksort(low, j);
         }
-        if (i < high)
-        {
+        if (i < high) {
             quicksort(i, high);
         }
     }
 
-    private void exchange(int i, int j)
-    {
+    private void exchange(int i, int j) {
         E temp = numbers[i];
         numbers[i] = numbers[j];
         numbers[j] = temp;

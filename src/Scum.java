@@ -5,51 +5,38 @@
  */
 
 /**
- *
  * @author Minal
  */
-public class Scum
-{
+public class Scum {
 
     Deck deck;
 
-    public Scum()
-    {
+    public Scum() {
         deck = new Deck(true);
     }
 
-    public void setGameValues()
-    {
-        int cardValue=0;
-        for (int i = 0; i < deck.getSize(); i++)
-        {
-            cardValue=deck.getCard(i).getValue();
-            if (cardValue == 0)
-            {
+    public void setGameValues() {
+        int cardValue = 0;
+        for (int i = 0; i < deck.getSize(); i++) {
+            cardValue = deck.getCard(i).getValue();
+            if (cardValue == 0) {
                 deck.setGameValue(i, 14);
-            }
-            else if (cardValue == 1)
-            {
+            } else if (cardValue == 1) {
                 deck.setGameValue(i, 12);
-            }
-            else if(cardValue==2)
-            {
+            } else if (cardValue == 2) {
                 deck.setGameValue(i, 13);
-            }
-            else
-            {
-                deck.setGameValue(i, cardValue-2);
+            } else {
+                deck.setGameValue(i, cardValue - 2);
             }
         }
     }
+
     @Override
-    public String toString()
-    {
+    public String toString() {
         return deck.toString();
     }
-    
-    public static void main(String[] args)
-    {
+
+    public static void main(String[] args) {
         Scum s = new Scum();
         s.setGameValues();
         System.out.println(s.toString());

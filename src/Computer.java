@@ -5,25 +5,22 @@
  */
 
 /**
- *
  * @author Minal
  */
-public class Computer extends Player
-{
-    public Computer()
-    {
+public class Computer extends Player {
+    public Computer() {
         super();
+        this.Name = "Computer" + (int) (Math.random() * 50 + 1);
     }
-    
-    
-    
-    public static void main(String[] args)
-    {
+
+    public Computer(String name) {
+        super(name);
+    }
+
+
+    public static void main(String[] args) {
         Computer com = new Computer();
-        com.dealPlayer(new Card(23));
-        com.dealPlayer(new Card(1));
-        com.dealPlayer(new Card(12));
-        com.dealPlayer(new Card(11));
+        System.out.println(com);
     }
-    
+
 }

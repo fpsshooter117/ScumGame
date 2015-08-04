@@ -7,12 +7,11 @@ import java.awt.Graphics;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 /**
- *
  * @author jmy4988
  */
-public class Card implements Comparable<Card>
-{
+public class Card implements Comparable<Card> {
 
     int value, gameValue;
     String suite;
@@ -25,77 +24,52 @@ public class Card implements Comparable<Card>
         gameValue = getValue();
     }
 
-    public Card(int Cardindex, int gameValue)
-    {
+    public Card(int Cardindex, int gameValue) {
         this.Cardindex = Cardindex;
         this.gameValue = gameValue;
     }
 
-    public String getSuite()
-    {
-        if (Cardindex == 0)
-        {
+    public String getSuite() {
+        if (Cardindex == 0) {
             suite = "Joker";
-        }
-        else if (Cardindex >= 1 && Cardindex <= 13)
-        {
+        } else if (Cardindex >= 1 && Cardindex <= 13) {
             suite = "Spade";
-        }
-        else if (Cardindex >= 14 && Cardindex <= 26)
-        {
+        } else if (Cardindex >= 14 && Cardindex <= 26) {
             suite = "Hearts";
-        }
-        else if (Cardindex >= 27 && Cardindex <= 39)
-        {
+        } else if (Cardindex >= 27 && Cardindex <= 39) {
             suite = "Clubs";
-        }
-        else
-        {
+        } else {
             suite = "Diamonds";
         }
         return suite;
     }
 
-    public int getValue()
-    {
-        if (Cardindex <= 13)
-        {
+    public int getValue() {
+        if (Cardindex <= 13) {
             value = Cardindex;
-        }
-        else if (Cardindex <= 26)
-        {
+        } else if (Cardindex <= 26) {
             value = Cardindex - 13;
-        }
-        else if (Cardindex <= 39)
-        {
+        } else if (Cardindex <= 39) {
             value = Cardindex - 26;
-        }
-        else if (Cardindex <= 59)
-        {
+        } else if (Cardindex <= 59) {
             value = Cardindex - 39;
         }
         return value;
     }
 
-    public void color()
-    {
-        if (getSuite().equals("Club") || getSuite().equals("Spade") || getSuite().equals("Joker"))
-        {
+    public void color() {
+        if (getSuite().equals("Club") || getSuite().equals("Spade") || getSuite().equals("Joker")) {
             color = Color.BLACK;
-        }
-        else
-        {
+        } else {
             color = Color.RED;
         }
     }
 
     @Override
-    public String toString()
-    {
+    public String toString() {
         String s = "" + getSuite();
         int v = getValue();
-        switch (v)
-        {
+        switch (v) {
             case 0:
                 s += "(" + getGameValue() + ")";
                 break;
@@ -122,25 +96,21 @@ public class Card implements Comparable<Card>
         return s;
     }
 
-    public void setGameValue(int gameValue)
-    {
+    public void setGameValue(int gameValue) {
         this.gameValue = gameValue;
     }
 
-    public int getGameValue()
-    {
+    public int getGameValue() {
         return gameValue;
     }
 
-    public void paintThis(Graphics g)
-    {
+    public void paintThis(Graphics g) {
 
     }
 
     @Override
-    public int compareTo(Card o)
-    {
-        return this.gameValue-o.getValue();
+    public int compareTo(Card o) {
+        return this.gameValue - o.getValue();
     }
 
     public static void main(String[] args) // this is to test the card class

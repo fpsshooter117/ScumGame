@@ -6,7 +6,6 @@
 
 
 /**
- *
  * @author ziheng.wei
  */
 public class RecursiveSorting {
@@ -14,7 +13,8 @@ public class RecursiveSorting {
     public void bubbleSort(int[] array) {
         recursiveBubble(array, 0, 0);
     }
-    public void selectionSort(int[] array){
+
+    public void selectionSort(int[] array) {
         recursiveSelection(array, 0, 0);
     }
 
@@ -35,10 +35,10 @@ public class RecursiveSorting {
 
     private void recursiveSelection(int[] array, int outterLoop, int innerLoop) {
         if (innerLoop == 0) {
-             if(++outterLoop < array.length) recursiveSelection(array,outterLoop, outterLoop);
+            if (++outterLoop < array.length) recursiveSelection(array, outterLoop, outterLoop);
         } else {
-            if(array[innerLoop] < array[innerLoop-1]){
-                 int bigger = array[innerLoop];
+            if (array[innerLoop] < array[innerLoop - 1]) {
+                int bigger = array[innerLoop];
                 array[innerLoop] = array[innerLoop - 1];
                 array[innerLoop - 1] = bigger;
             }
