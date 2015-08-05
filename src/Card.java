@@ -18,25 +18,33 @@ public class Card implements Comparable<Card> {
     Color color;
     int Cardindex;
 
-    public Card(int Cardindex)//1-52 for cards
-    {
-        this.Cardindex = Cardindex;
-        gameValue = getValue();
+    //1-52 for cards, 2 jokers
+    public Card(int Cardindex) throws IllegalArgumentException {
+        if (Cardindex > 54) {
+            throw new IllegalArgumentException("no more than 54 cards");
+        } else {
+            this.Cardindex = Cardindex;
+            gameValue = getValue();
+        }
     }
 
-    public Card(int Cardindex, int gameValue) {
-        this.Cardindex = Cardindex;
-        this.gameValue = gameValue;
+    public Card(int Cardindex, int gameValue) throws IllegalArgumentException {
+        if (Cardindex > 54) {
+            throw new IllegalArgumentException("no more than 54 cards");
+        } else {
+            this.Cardindex = Cardindex;
+            this.gameValue = gameValue;
+        }
     }
 
     public String getSuite() {
-        if (Cardindex == 0) {
+        if (Cardindex == 0 || Cardindex == 1) {
             suite = "Joker";
-        } else if (Cardindex >= 1 && Cardindex <= 13) {
+        } else if (Cardindex >= 2 && Cardindex <= 15) {
             suite = "Spade";
-        } else if (Cardindex >= 14 && Cardindex <= 26) {
+        } else if (Cardindex >= 16 && Cardindex <= 29) {
             suite = "Hearts";
-        } else if (Cardindex >= 27 && Cardindex <= 39) {
+        } else if (Cardindex >= 29 && Cardindex <= 42) {
             suite = "Clubs";
         } else {
             suite = "Diamonds";
@@ -45,9 +53,9 @@ public class Card implements Comparable<Card> {
     }
 
     public int getValue() {
-        if (Cardindex <= 13) {
+        if (Cardindex <= 15 && Cardindex >1) {
             value = Cardindex;
-        } else if (Cardindex <= 26) {
+        } else if (Cardindex <= 29) {
             value = Cardindex - 13;
         } else if (Cardindex <= 39) {
             value = Cardindex - 26;
